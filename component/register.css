@@ -1,0 +1,184 @@
+/* Base reset and styling */
+
+
+/* Container for form */
+
+.form-container {
+    width: 90%;
+    max-width: 500px;
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+}
+
+
+/* Title styling */
+
+.form-title {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 26px;
+}
+
+
+/* Grouping each label and input */
+
+.form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Label styling */
+
+.form-group label {
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #444;
+}
+
+
+/* Input and select fields */
+
+.form-group input,
+.form-group select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #4caf50;
+}
+
+
+/* Webcam styling */
+
+.webcam {
+    border-radius: 10px;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+
+/* Buttons */
+
+.submit-btn,
+.capture-btn {
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover,
+.capture-btn:hover {
+    background-color: #45a049;
+}
+
+
+/* Image preview */
+
+.preview-photo {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.preview-img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Success message */
+
+.success-msg {
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.crop-section {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+    margin: 2rem auto;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.crop-section .reactEasyCrop_CropArea {
+    border: 2px dashed #2196f3;
+}
+
+.submit-btn {
+    margin-top: 1rem;
+    padding: 10px 16px;
+    font-size: 16px;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    align-self: center;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #1976d2;
+}
+
+@media (max-width: 480px) {
+    .crop-section {
+        max-width: 100%;
+        height: 300px;
+    }
+    .submit-btn {
+        width: 100%;
+        font-size: 14px;
+    }
+}
+
+
+/* Responsive tweaks */
+
+@media (max-width: 600px) {
+    .form-container {
+        padding: 20px;
+    }
+    .form-title {
+        font-size: 22px;
+    }
+    .submit-btn,
+    .capture-btn {
+        font-size: 15px;
+        padding: 10px;
+    }
+}

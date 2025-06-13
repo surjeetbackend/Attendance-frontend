@@ -1,0 +1,80 @@
+.login-container {
+    padding: 30px;
+    max-width: 400px;
+    margin: 80px auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #1f2937;
+    /* Tailwind gray-800 */
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #374151;
+    /* Tailwind gray-700 */
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #2563eb;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #1e40af;
+}
+
+.status-msg {
+    margin-top: 15px;
+    text-align: center;
+    color: #b91c1c;
+    /* red-700 */
+}
+
+.register-section {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.register-btn {
+    margin-top: 5px;
+    padding: 10px 20px;
+    background-color: #10b981;
+    /* green-500 */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-btn:hover {
+    background-color: #059669;
+    /* green-600 */
+}

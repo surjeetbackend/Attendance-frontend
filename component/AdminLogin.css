@@ -1,0 +1,95 @@
+.admin-login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-login-form {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.admin-login-form:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.admin-login-form h2 {
+    margin-bottom: 24px;
+    color: #3f51b5;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.admin-login-form input {
+    width: 100%;
+    padding: 14px 16px;
+    margin: 14px -13px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.admin-login-form input:focus {
+    border-color: #3f51b5;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.1);
+    outline: none;
+}
+
+.admin-login-form button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 16px;
+    background-color: #3f51b5;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.admin-login-form button:hover {
+    background-color: #303f9f;
+    transform: scale(1.02);
+}
+
+.admin-login-form button:active {
+    transform: scale(0.98);
+}
+
+.error {
+    color: #d93025;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+
+/* Responsive design */
+
+@media (max-width: 480px) {
+    .admin-login-form {
+        padding: 30px 20px;
+    }
+    .admin-login-form h2 {
+        font-size: 20px;
+    }
+    .admin-login-form input,
+    .admin-login-form button {
+        font-size: 15px;
+        padding: 12px;
+    }
+}
