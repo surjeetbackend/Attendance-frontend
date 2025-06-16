@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cropper from 'react-easy-crop';
 import getCroppedImg from '../utils/cropImage';
@@ -7,11 +7,18 @@ import './register.css';
 
 export default function Register() {
   const navigate = useNavigate();
+
   const [form, setForm] = useState({
-    name: '', email: '', password: '', phone: '', gender: '', dob: '',
+    name: '',
+    email: '',
+    password: '',
+    phone: '',
+    gender: '',
+    dob: '',
     hireDate: new Date().toLocaleDateString(),
   });
 
+  const [status, setStatus] = useState('');
   const [empId, setEmpId] = useState('');
   const [imageSrc, setImageSrc] = useState(null);
   const [croppedImage, setCroppedImage] = useState('');
@@ -43,16 +50,24 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!croppedImage) return alert('Please upload and crop a photo.');
+    setStatus('');
+
+    if (!croppedImage) {
+      alert('Please upload and crop a photo.');
+      return;
+    }
+
     try {
-      const res = await axios.post('http://localhost:5000/api/register-form', {
+      const res = await axios.post('http://localhost:5000/api/auth/register-form', {
         ...form,
         photo: croppedImage,
       });
+
       setEmpId(res.data.empId);
+      setStatus('Registered successfully!');
     } catch (err) {
-      console.error(err);
-      alert('Registration failed');
+      const msg = err.response?.data?.error || 'Registration failed';
+      setStatus(msg);
     }
   };
 
@@ -84,8 +99,6 @@ export default function Register() {
           </select>
         </div>
 
-     
-
         <div className="form-group">
           <label>Password:</label>
           <input type="password" name="password" onChange={handleChange} required />
@@ -96,27 +109,29 @@ export default function Register() {
           <input type="file" accept="image/*" onChange={handleImageUpload} />
         </div>
 
-        {imageSrc && (
-          <div className="crop-section">
-            <Cropper
-              image={imageSrc}
-              crop={crop}
-              zoom={zoom}
-              aspect={1}
-              onCropChange={setCrop}
-              onZoomChange={setZoom}
-              onCropComplete={onCropComplete}
-            />
-            
-            
-          </div>
-          
-        )}
-        <div>
-            <button type="button" className="submit-btn" onClick={handleCropSave}>
-              Save Cropped Image
-            </button>
-          </div>
+       {imageSrc && (
+  <>
+    <div className="crop-section">
+      <Cropper
+        image={imageSrc}
+        crop={crop}
+        zoom={zoom}
+        aspect={1}
+        onCropChange={setCrop}
+        onZoomChange={setZoom}
+        onCropComplete={onCropComplete}
+      />
+    </div>
+  
+
+    <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+      <button type="button" className="submit-btn-c" onClick={handleCropSave}>
+        Save Cropped Image
+      </button>
+    </div>
+  </>
+)}
+
 
         {croppedImage && (
           <div className="preview-photo">
@@ -127,6 +142,8 @@ export default function Register() {
 
         <button type="submit" className="submit-btn">Register</button>
       </form>
+
+      {status && <p className="status-msg">{status}</p>}
 
       {empId && (
         <>

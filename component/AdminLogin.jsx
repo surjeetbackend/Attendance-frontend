@@ -16,7 +16,7 @@ const AdminLogin = () => {
       localStorage.setItem('isAdminLoggedIn', 'true');
       navigate('/admin');
     } else {
-      setError('Invalid credentials');
+      setError('Invaild details');
     }
   };
 

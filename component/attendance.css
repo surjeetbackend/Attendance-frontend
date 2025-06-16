@@ -128,9 +128,10 @@
 }
 
 .preview-img {
-    max-width: 100%;
-    max-height: 240px;
-    border-radius: 10px;
+    max-width: 186px;
+
+        max-height: 186px;
+    border-radius: 100px;
     border: 1px solid #ccc;
     margin-top: 0.5rem;
 }

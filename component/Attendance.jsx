@@ -44,15 +44,14 @@ export default function Attendance() {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
         async (pos) => {
-          const lat = pos.coords.latitude.toFixed(6);
-          const lng = pos.coords.longitude.toFixed(6);
+          const lat = pos.coords.latitude.toFixed();
+          const lng = pos.coords.longitude.toFixed();
 
           try {
-            const apiKey = 'b56b0340a8a34023876b059d5a24b945'; 
+            const apiKey = '6a217fa30dd7420e866776ee64c13e0d'; 
             const url = `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=${apiKey}`;
             const response = await fetch(url);
             const data = await response.json();
-
             if (data?.results?.length) {
               resolve(data.results[0].formatted);
             } else {
@@ -69,7 +68,7 @@ export default function Attendance() {
         },
         {
           enableHighAccuracy: true,
-          timeout: 10000,
+          timeout: 1000,
           maximumAge: 0,
         }
       );
@@ -84,7 +83,7 @@ export default function Attendance() {
 
     try {
       const location = await getLocation();
-      const res = await axios.post('http://localhost:5000/api/attendanc/mark', {
+      const res = await axios.post('https://attendance-backend-final-2.onrender.com/api/attendanc/mark', {
         ...form,
         type,
         location,
@@ -123,11 +122,11 @@ export default function Attendance() {
 
       <div className="form-group">
         <label> Capture Photo </label><br />
-        <video ref={videoRef} width="320" height="240" autoPlay className="webcam-preview"></video><br />
+        <video ref={videoRef} width="220" height="240" autoPlay className="webcam-preview"></video><br />
         <button type="button" onClick={capturePhoto} className="btn">
           Capture
         </button>
-        <canvas ref={canvasRef} width="320" height="240" style={{ display: 'none' }}></canvas>
+        <canvas ref={canvasRef} width="220" height="240" style={{ display: 'none' }}></canvas>
       </div>
 
       {photo && (
